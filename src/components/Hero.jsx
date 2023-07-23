@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { baseImgUrl } from "../constants/constants";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const state = useSelector((store) => store.movieReducer);
@@ -19,7 +20,9 @@ const Hero = () => {
             <p className="lead">{film.overview}</p>
             <p className="text-warning fw-bold">IMDB: {film.vote_average}</p>
             <div className="d-flex gap-3 justify-content-center">
-              <button className="btn btn-danger">Watch Movie</button>
+              <Link to={`/movie/${film.id}`} className="btn btn-danger">
+                Watch Movie
+              </Link>
               <button className="btn btn-info">Add to List</button>
             </div>
           </div>
